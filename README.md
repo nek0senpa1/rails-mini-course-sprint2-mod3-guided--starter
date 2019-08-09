@@ -1,3 +1,1 @@
-# Paybuddy
-
-Sprint 2 Mod 3 Starter
+# Ruby on Rails - Intermediate Ruby on Rails - Active Record - Guided Project
