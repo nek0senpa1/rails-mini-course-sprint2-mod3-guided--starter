@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, except: [:destroy] do
-        resources :transactions, only: [:index], module: :users
+        resources :transactions, only: [:index], module: :users do
+          get "withdrawals", on: :collection
+          get "deposits", on: :collection
+          get "admin", on: :collection
+        end
         post "transfer", on: :member
       end
     end

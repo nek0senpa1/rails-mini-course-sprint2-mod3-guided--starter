@@ -46,11 +46,15 @@ GEM
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     builder (3.2.3)
+    bullet (6.0.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubi (1.8.0)
     ffi (1.11.1)
+    ffi (1.11.1-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)
@@ -72,8 +76,11 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.10)
+    msgpack (1.2.10-x64-mingw32)
     nio4r (2.3.1)
     nokogiri (1.10.3)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.3-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     puma (3.12.1)
     rack (2.0.7)
@@ -127,15 +134,21 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.2)
+      tzinfo (>= 1.0.0)
+    uniform_notifier (1.12.1)
+    wdm (0.1.1)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bullet
   byebug
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
@@ -145,9 +158,10 @@ DEPENDENCIES
   sqlite3
   sucker_punch
   tzinfo-data
+  wdm (>= 0.1.0)
 
 RUBY VERSION
-   ruby 2.6.2p47
+   ruby 2.5.5p157
 
 BUNDLED WITH
-   2.0.1
+   2.0.2

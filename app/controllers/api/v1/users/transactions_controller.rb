@@ -6,9 +6,44 @@ module Api
         before_action :authorize_user!
 
         def index
-          @transactions = Transaction.where(user_id: params[:user_id])
+          # @transactions = User.find(params[:user_id]).transactions
+
+          # @transactions = User.transactions_for(params[:user_id])
+
+          @transactions = User.transactions_for(params[:user_id]).map {
+            |t| t.pretty_json
+          }
 
           render json: @transactions
+        end
+
+        def admin
+          #bad way to do it apparently...
+          # @transactions = Transaction.all.map {
+          @transactions = Transaction.all.includes(:user).map {
+            |t| t.pretty_json
+          }
+
+          render json: @transactions
+
+        end
+
+        def deposits
+          # @deposits = User.find(params [:user_id]).transactions.where(category: "deposit")
+
+          @deposits = User.deposits_for(params [:user_id])
+
+          render json: @deposits
+
+        end
+
+        def withdrawals
+          # @withdrawals = User.find(params[:user_id]).transactions.where(category: "withdrawal")
+          
+          @withdrawals = User.withdrawals_for(params[:user])
+
+          render json: @withdrawals
+
         end
 
         private
